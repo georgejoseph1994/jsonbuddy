@@ -1,20 +1,90 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">{{heading}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse navbarCustom " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">New <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li ngbDropdown class="nav-item d-inline-block">
+          <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>Open</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="dropdown-item">Open from disk</a>
+            <a class="dropdown-item">Open from url</a>
+          </div>
+        </li>
 
+        <li ngbDropdown class="nav-item d-inline-block">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>Save</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a class="dropdown-item">Save to disk</a>
+              <a class="dropdown-item">Save online</a>
+  
+            </div>
+          </li>  
+
+          <li ngbDropdown class="nav-item d-inline-block">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>Settings</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a class="dropdown-item">Intendation</a>
+                <a class="dropdown-item">Add Schema</a>
+    
+              </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+            </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <br>
+  <div class="container-fluid">
+      <div class="row justify-content-start">
+        <div class="col-5">
+            <code-editor (sourceJSONEE)="tempSourceJSON=$event" [text]="sourceJSON">
+            </code-editor>
+        </div>
+        <div class="col-1">
+            <button (click)="targetToSource()"><</button>
+            <button (click)="sourceToTarget()"> > </button>
+        </div>
+        <div class="col-5">
+            <target-editor [text]="targetJSON" (targetJSONEE)="tempTargetJSON=$event">
+              </target-editor>
+        </div>
+      </div>
+  </div> -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-5" style="padding-top: 15px;">
+        <jeditor [inputToCode]="sourceJSON"(sourceJSONEE)="storeSourceJSON($event)"></jeditor>
+      </div>
+      <div class="col-1" Style = "padding-left:0px; padding-right:0px; max-width:36.94px; min-width:36.94px ">
+          <button class="btn btn-primary" (click)="sourceToTarget()" style=" margin-top:65px;"> > </button>
+          <button class="btn btn-primary"  (click)="targetToSource()" style=" margin-top:15px">  <  </button>
+      </div>
+      <div class="col-5" style="padding-top: 15px;">
+        <jeditor-tree [inputToTree]="targetJSON" (targetJSONEE)="tempTargetJSON=$event"></jeditor-tree>
+      </div>
+    </div>
+</div>
+
+
+  
+    <!-- <div>
+  <!-- <code-editor (sourceJSONEE)="storeSourceJSON($event)" [text]="sourceJSON"> 
+  <code-editor (sourceJSONEE)="tempSourceJSON=$event" [text]="sourceJSON">
+  </code-editor>
+
+  <button (click)="targetToSource()"><</button>
+  <button (click)="sourceToTarget()"> > </button>
+
+  <target-editor [text]="targetJSON" (targetJSONEE)="tempTargetJSON=$event">
+  </target-editor>
+</div> -->
