@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgJsonEditorModule } from 'ang-jsoneditor';
 import { JeditorComponent } from './jeditor/jeditor.component';
 import { JeditorTreeComponent } from './jeditor-tree/jeditor-tree.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +17,10 @@ import { JeditorTreeComponent } from './jeditor-tree/jeditor-tree.component';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    NgJsonEditorModule
+    NgJsonEditorModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

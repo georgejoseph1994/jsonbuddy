@@ -1,12 +1,23 @@
 .navbarCustom{
-    padding-left: 45% !important;
+    min-width: 320px;
+    max-width: 320px;
+    align-items:unset !important;
+    margin-left: 48%;
+    padding-right: calc( 8.333% * 2 - 36.94px )
+
+
+}
+
+.dataFlowButton{
+    margin-top: calc(100vh /2 - 100px);
+    
 }
 
 .navbar-custom {
     background-color: rgb(21,101,192);
     height:42px;
     font-weight: 600;
-
+    padding-right: calc( 8.333% * 2 - 36.94px )
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,

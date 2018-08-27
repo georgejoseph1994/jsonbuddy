@@ -11,7 +11,7 @@ export class JeditorComponent  {
 
   public editorOptions: JsonEditorOptions;
   public data:any;
-  @Input() inputToCode : string="{ }";
+  @Input() inputToCode : string="{}";
   @Output() sourceJSONEE: EventEmitter<any> = new EventEmitter();
   @ViewChild(JsonEditorComponent) editor: JsonEditorComponent;
   private firstTimeFlag = 0;
@@ -19,7 +19,6 @@ export class JeditorComponent  {
     this.editorOptions = new JsonEditorOptions()
     this.editorOptions.modes = ['code', 'text', 'tree', 'view']; // set all allowed modes
     this.editorOptions.mode = "code"; //set only one mode
-     
     this.editorOptions.onChangeText = (input)=>{
       this.inputToCode = input;
       this.sourceJSONEE.emit(input);
